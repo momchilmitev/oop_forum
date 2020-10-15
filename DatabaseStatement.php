@@ -20,7 +20,7 @@ class DatabaseStatement implements DatabaseStatementInterface
     {
         $row = $this->pdoStmt->fetch(PDO::FETCH_ASSOC);
 
-        while (!$row) {
+        while (false !== $row) {
             yield $row;
             $row = $this->pdoStmt->fetch(PDO::FETCH_ASSOC);
         }
