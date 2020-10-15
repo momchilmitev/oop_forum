@@ -1,10 +1,12 @@
 <?php
 
+namespace Database;
+
 class PDODatabase implements DatabaseInterface
 {
-    private PDO $pdo;
+    private \PDO $pdo;
 
-    public function __construct(PDO $pdo)
+    public function __construct(\PDO $pdo)
     {
         $this->pdo = $pdo;
     }
