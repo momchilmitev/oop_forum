@@ -1,5 +1,7 @@
 <?php
 
+namespace Data\Users;
+
 class UserDTO
 {
     private string $username;

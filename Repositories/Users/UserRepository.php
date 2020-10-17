@@ -3,7 +3,7 @@
 namespace Repositories\Users;
 
 use Database\DatabaseInterface;
-use UserDTO;
+use Data\Users\UserDTO;
 
 class UserRepository implements UserRepositoryInterface
 {

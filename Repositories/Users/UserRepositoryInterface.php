@@ -2,7 +2,7 @@
 
 namespace Repositories\Users;
 
-use UserDTO;
+use Data\Users\UserDTO;
 
 interface UserRepositoryInterface
 {
