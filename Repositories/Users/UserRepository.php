@@ -3,6 +3,7 @@
 namespace Repositories\Users;
 
 use Database\DatabaseInterface;
+use UserDTO;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -16,5 +17,11 @@ class UserRepository implements UserRepositoryInterface
     public function getAll(): \Generator
     {
         return $this->db->query("SELECt * FROM users")->execute()->fetch();
+    }
+
+    public function register(UserDTO $userDTO)
+    {
+        $this->db->query("INSERT INTO users (username, password) VALUES (?, ?)")
+                    ->execute([$userDTO->getUsername(), $userDTO->getPassword()]);
     }
 }
