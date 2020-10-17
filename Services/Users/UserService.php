@@ -50,4 +50,11 @@ class UserService implements UserServiceInterface
 
         $this->userRepository->register($userDTO);
     }
+
+    public function verifyCredentials(string $username, string $password): bool
+    {
+        $user = $this->userRepository->getByUsername($username);
+
+        return $this->encryptionService->verify($password, $user->getPassword());
+    }
 }

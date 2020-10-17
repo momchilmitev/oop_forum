@@ -24,4 +24,11 @@ class UserRepository implements UserRepositoryInterface
         $this->db->query("INSERT INTO users (username, password) VALUES (?, ?)")
                     ->execute([$userDTO->getUsername(), $userDTO->getPassword()]);
     }
+
+    public function getByUsername(string $username): UserDTO
+    {
+        $user = $this->db->query("SELECT * FROM users WHERE username = ?")->execute([$username])->fetch();
+        $user = $user->current();
+        return new UserDTO($user['username'], $user['password'], '');
+    }
 }
