@@ -5,6 +5,7 @@ namespace Services\Users;
 use Data\Users\UserDTO;
 use Repositories\Users\UserRepositoryInterface;
 use Services\Encryption\EncryptionServiceInterface;
+use Data\Users\UserEditDTO;
 
 class UserService implements UserServiceInterface
 {
@@ -66,5 +67,27 @@ class UserService implements UserServiceInterface
     public function findBiId(int $id): UserDTO
     {
         return $this->userRepository->getById($id);
+    }
+
+    public function edit(int $id, UserEditDTO $userEditDTO): void
+    {
+        $user = $this->userRepository->getById($id);
+        $changePassword = false;
+
+        if ($userEditDTO->getOldPassword() && $userEditDTO->getNewPassword()) {
+            if (!$this->verifyCredentials($user->getUsername(), $userEditDTO->getOldPassword())) {
+                throw new \Exception("Password mismatch!");
+            }
+
+            $changePassword = true;
+        }
+
+        if ($changePassword) {
+            $userEditDTO->setNewPassword(
+                $this->encryptionService->hash($userEditDTO->getNewPassword())
+            );
+        }
+
+        $this->userRepository->edit($id, $userEditDTO, $changePassword);
     }
 }

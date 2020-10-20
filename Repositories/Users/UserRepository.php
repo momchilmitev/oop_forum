@@ -2,6 +2,7 @@
 
 namespace Repositories\Users;
 
+use Data\Users\UserEditDTO;
 use Database\DatabaseInterface;
 use Data\Users\UserDTO;
 
@@ -37,5 +38,21 @@ class UserRepository implements UserRepositoryInterface
         $user = $this->db->query("SELECT * FROM users WHERE id = ?")->execute([$id])->fetch();
         $user = $user->current();
         return new UserDTO($user['id'], $user['username'], $user['password'], '');
+    }
+
+    public function edit(int $id, UserEditDTO $userEditDTO, bool $changePassword)
+    {
+        $query = "UPDATE users SET username = ?";
+        $params = [$userEditDTO->getUsername()];
+
+        if ($changePassword) {
+            $query .= ", password = ?";
+            $params[] = $userEditDTO->getNewPassword();
+        }
+
+        $query .= " WHERE id = ?";
+        $params[] = $id;
+
+        $this->db->query($query)->execute($params);
     }
 }
