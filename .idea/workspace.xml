@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="22e1b1d1-790b-4687-ad21-2c7d5a7e59d4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Data/Users/UserDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Users/UserDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/Users/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Users/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/Users/UserRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Users/UserRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Users/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Users/UserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Users/UserServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Users/UserServiceInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
+  <component name="ProjectId" id="1j8FZeJieVFm8VLdMitgTEDw5B6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="login.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/login.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.login.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="22e1b1d1-790b-4687-ad21-2c7d5a7e59d4" name="Default Changelist" comment="" />
+      <created>1603177868373</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603177868373</updated>
+      <workItem from="1603177869537" duration="1644000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

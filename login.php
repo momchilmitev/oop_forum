@@ -2,16 +2,26 @@
 
 require_once 'index.php';
 
-$username = readline();
-$password = readline();
+$error = '';
+if (isset($_POST['login'])) {
 
-$userService = new \Services\Users\UserService(
-    new \Repositories\Users\UserRepository($db),
-    new \Services\Encryption\ArgonEncryptionService()
-);
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-if ($userService->verifyCredentials($username, $password)) {
-    echo "Logged in!";
-} else {
-    echo "Wrong credentials!";
+    $userService = new \Services\Users\UserService(
+        new \Repositories\Users\UserRepository($db),
+        new \Services\Encryption\ArgonEncryptionService()
+    );
+
+    if ($userService->verifyCredentials($username, $password)) {
+        $user = $userService->findByUsername($username);
+        $_SESSION['id'] = $user->getId();
+        header("Location: profile.php");
+        exit;
+    } else {
+        $error =  "Wrong credentials!";
+    }
 }
+
+require_once 'views/users/login.php';
+

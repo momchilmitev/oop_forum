@@ -57,4 +57,14 @@ class UserService implements UserServiceInterface
 
         return $this->encryptionService->verify($password, $user->getPassword());
     }
+
+    public function findByUsername(string $username): UserDTO
+    {
+        return $this->userRepository->getByUsername($username);
+    }
+
+    public function findBiId(int $id): UserDTO
+    {
+        return $this->userRepository->getById($id);
+    }
 }
