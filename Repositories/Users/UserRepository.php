@@ -30,14 +30,14 @@ class UserRepository implements UserRepositoryInterface
     {
         $user = $this->db->query("SELECT * FROM users WHERE username = ?")->execute([$username])->fetch();
         $user = $user->current();
-        return new UserDTO($user['id'], $user['username'], $user['password'], '');
+        return new UserDTO($user['id'], $user['username'], $user['password'], '', $user['profile_picture_url']);
     }
 
     public function getById(int $id): UserDTO
     {
         $user = $this->db->query("SELECT * FROM users WHERE id = ?")->execute([$id])->fetch();
         $user = $user->current();
-        return new UserDTO($user['id'], $user['username'], $user['password'], '');
+        return new UserDTO($user['id'], $user['username'], $user['password'], '', $user['profile_picture_url']);
     }
 
     public function edit(int $id, UserEditDTO $userEditDTO, bool $changePassword)
@@ -54,5 +54,10 @@ class UserRepository implements UserRepositoryInterface
         $params[] = $id;
 
         $this->db->query($query)->execute($params);
+    }
+
+    public function setPictureUrl(int $id, string $filePath)
+    {
+        $this->db->query("UPDATE users SET profile_picture_url = ? WHERE id = ?")->execute([$filePath, $id]);
     }
 }

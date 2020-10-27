@@ -26,4 +26,14 @@ interface UserServiceInterface
     public function findByUsername(string $username): UserDTO;
 
     public function findBiId(int $id): UserDTO;
+
+    /**
+     * @param int $id
+     * @param string $tempName
+     * @param string $type
+     * @param int $size
+     * @throws \Exception;
+     * @return mixed
+     */
+    public function setProfilePicture(int $id, string $tempName, string $type, int $size);
 }

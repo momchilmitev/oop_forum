@@ -10,6 +10,13 @@
 <body>
     <h1>Profile</h1>
     <h2>Welcome, <?= $user->getUsername(); ?></h2>
+
+    <?php if($user->getProfilePictureUrl() == null): ?>
+        <h2>No profile Picture</h2>
+    <?php else: ?>
+        <img src="/oop_forum/<?= $user->getProfilePictureUrl(); ?>" alt="">
+    <?php endif; ?>
+
     <a href="edit_profile.php">Edit your profile</a>
 </body>
 </html>

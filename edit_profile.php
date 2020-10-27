@@ -4,7 +4,7 @@ use Data\Users\UserEditDTO;
 
 require_once 'secure_common.php';
 
-$error = '';
+$errors = [];
 
 if (isset($_POST['edit'])) {
     $username = $_POST['username'];
@@ -13,10 +13,16 @@ if (isset($_POST['edit'])) {
 
     try {
         $userService->edit($id, new UserEditDTO($id, $username, $oldPassword, $newPassword));
+        $userService->setProfilePicture(
+            $id,
+            $_FILES['profile_picture']['tmp_name'],
+            $_FILES['profile_picture']['type'],
+            $_FILES['profile_picture']['size'],
+        );
         header("Location: profile.php");
         exit;
     } catch (\Exception $e) {
-        $error = $e->getMessage();
+        $errors[] = $e->getMessage();
     }
 }
 

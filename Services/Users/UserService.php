@@ -10,6 +10,8 @@ use Data\Users\UserEditDTO;
 class UserService implements UserServiceInterface
 {
     const MIN_USERNAME_LENGTH = 5;
+    const MAX_ALLOWED_IMAGE_SIZE = 30000;
+    const ALLOWED_IMAGE_PREFIX = 'image/';
 
     /**
      * @var UserRepositoryInterface
@@ -89,5 +91,25 @@ class UserService implements UserServiceInterface
         }
 
         $this->userRepository->edit($id, $userEditDTO, $changePassword);
+    }
+
+    public function setProfilePicture(int $id, string $tempName, string $type, int $size)
+    {
+
+        if (strpos($type, self::ALLOWED_IMAGE_PREFIX) === false) {
+            throw new \Exception("Invalid image type!");
+        }
+
+        if ($size >= self::MAX_ALLOWED_IMAGE_SIZE) {
+            throw new \Exception("Image too big!");
+        }
+
+        $filePath = 'public/images/' . uniqid('profile_') . '.' . explode('/', $type)[1];
+
+        if (!move_uploaded_file($tempName, $filePath)) {
+            throw new \Exception("Error uploading file!");
+        }
+
+        $this->userRepository->setPictureUrl($id, $filePath);
     }
 }
