@@ -6,7 +6,7 @@ spl_autoload_register(function($className) {
     require_once $className . '.php';
 });
 
-$pdo = new \PDO("mysql:dbname=forum;host=localhost", "root", "M8708013025");
+$pdo = new \PDO("mysql:dbname=forum;host=localhost", "root");
 $db = new Database\PDODatabase($pdo);
 //$userRepo = new Repositories\Users\UserRepository($db);
 //
